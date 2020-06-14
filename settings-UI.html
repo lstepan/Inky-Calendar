@@ -20,7 +20,7 @@
     <div class="ts segment">
       <div class="ts header">
         Setting Generator, v.2.0
-        <div class="sub header"><a href="https://github.com/aceisace/Inky-Calendar">For Inky-Calendar Project of
+        <div class="sub header"><a href="https://github.com/aceisace/Inky-Calendar">For Inkycal Project of
             Ace-Innovation Laboratory (by aceisace)</a><br>
           <img src="https://github.com/aceisace/Inky-Calendar/blob/dev_ver2_0/Gallery/logo.png?raw=true"
             width="1000" alt="logo">
@@ -244,21 +244,21 @@
         </div>
 
         <div class="field">
-          <label>What should be displayed in the top section?</label>
-          <div class="ts checkboxes" id="cb_top_section">
+          <label>What should be displayed in section 1 (top)?</label>
+          <div class="ts checkboxes" id="cb_section1">
             <div class="ts radio checkbox">
               <input id="Weather" type="radio" name="ts" checked>
               <label for="Weather">Weather</label>
             </div>
             <div class="ts radio checkbox">
-              <input id="top_blank" type="radio" name="ts">
-              <label for="top_blank">Nothing</label>
+              <input id="section1_blank" type="radio" name="ts">
+              <label for="section1_blank">Nothing</label>
             </div>
           </div>
         </div>
 
         <div class="field" id="pnl_top_height">
-        <label>Height of the top section</label>
+        <label>Height of section 1</label>
         <details class="ts accordion">
           <summary>
             <i class="dropdown icon"></i> Info
@@ -266,12 +266,12 @@
           <div class="content">
         <p>Section height is calculated relative to other sections. With this approach you can choose pixel-perfect, relative or percentage panel heights.</p></div>
         </details>
-        <input id="top_height" type="number" min="1" max="10000" placeholder="10">
+        <input id="section1_height" type="number" min="1" max="100" placeholder="10">
       </div>
 
         <div class="field">
-          <label>What should be displayed in the middle (main) section?</label>
-          <div class="ts checkboxes" id="cb_middle_section">
+          <label>What should be displayed in section 2 (middle)?</label>
+          <div class="ts checkboxes" id="cb_section2">
             <div class="ts radio checkbox">
               <input id="Calendar" type="radio" name="ms" checked>
               <label for="Calendar">A monthly Calendar</label>
@@ -285,15 +285,15 @@
               <label for="Image">An image</label>
             </div>
             <div class="ts radio checkbox">
-              <input id="middle_blank" type="radio" name="ms">
-              <label for="middle_blank">Nothing</label>
+              <input id="section2_blank" type="radio" name="ms">
+              <label for="section2_blank">Nothing</label>
             </div>
           </div>
 
         </div>
 
-        <div class="field" id="pnl_middle_height">
-        <label>Height of the middle section</label>
+        <div class="field" id="pnl_section2_height">
+        <label>Height of section 2</label>
         <details class="ts accordion">
           <summary>
             <i class="dropdown icon"></i> Info
@@ -301,7 +301,7 @@
           <div class="content">
         <p>Section height is calculated relative to other sections. With this approach you can choose pixel-perfect, relative or percentage panel heights.</p></div>
         </details>
-        <input id="middle_height" type="number" min="1" max="10000" placeholder="65">
+        <input id="section2_height" type="number" min="1" max="100" placeholder="65">
       </div>
 
 
@@ -344,21 +344,21 @@
         </div>
 
         <div class="field">
-          <label>What should be displayed in the bottom section?</label>
-          <div class="ts checkboxes" id="cb_bottom_section">
+          <label>What should be displayed in section 3 (bottom)?</label>
+          <div class="ts checkboxes" id="cb_section3">
             <div class="ts radio checkbox">
               <input id="RSS" type="radio" name="bs" checked>
               <label for="RSS">RSS-feeds</label>
             </div>
             <div class="ts radio checkbox">
-              <input id="bottom_blank" type="radio" name="bs">
-              <label for="bottom_blank">Nothing</label>
+              <input id="section3_blank" type="radio" name="bs">
+              <label for="section3_blank">Nothing</label>
             </div>
           </div>
         </div>
 
-        <div class="field" id="pnl_bottom_height">
-        <label>Height of the bottom section</label>
+        <div class="field" id="pnl_section3_height">
+        <label>Height of section 3</label>
         <details class="ts accordion">
           <summary>
             <i class="dropdown icon"></i> Info
@@ -366,7 +366,7 @@
           <div class="content">
         <p>Section height is calculated relative to other sections. With this approach you can choose pixel-perfect, relative or percentage panel heights.</p></div>
         </details>
-        <input id="bottom_height" type="number" min="1" max="10000" placeholder="25">
+        <input id="section3_height" type="number" min="1" max="100" placeholder="25">
       </div>
 
         <div class="field">
@@ -392,12 +392,12 @@
         <div class="field">
           <label>iCalendar URLs in the following format: 'URL 1', 'URL 2', 'URL 3'</label>
           <input id="ical_urls" type="text"
-            placeholder="'https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics'">
+            placeholder="https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics">
         </div>
 
         <div class="field">
           <label>RSS-Feed URL/s in the following format: 'URL 1', 'URL 2', 'URL 3'</label>
-          <input id="rss_urls" type="text" placeholder="'http://feeds.bbci.co.uk/news/world/rss.xml#'">
+          <input id="rss_urls" type="text" placeholder="http://feeds.bbci.co.uk/news/world/rss.xml#">
         </div>
 
         <div class="field">
@@ -468,7 +468,7 @@
   <br>
 
   <script>
-    $('#cb_middle_section').change(function () {
+    $('#cb_section2_section').change(function () {
       if ($('#Image').prop("checked")) {
         $('#Image_Config').show();
       } else {
@@ -607,35 +607,35 @@
         hours = "12";
       }
 
-      var top_section = "Weather";
-      if ($('#top_blank').is(':checked')) {
-        top_section = "";
+      var section1 = "Weather";
+      if ($('#section1_blank').is(':checked')) {
+        section1 = "";
       }
 
-      var middle_section = "Calendar";
+      var section2 = "Calendar";
       if ($('#Agenda').is(':checked')) {
-        middle_section = "Agenda";
+        section2 = "Agenda";
       }
       if ($('#Image').is(':checked')) {
-        middle_section = "Image";
+        section2 = "Image";
       }
-      if ($('#middle_blank').is(':checked')) {
-        middle_section = "";
-      }
-
-      var bottom_section = "RSS";
-      if ($('#bottom_blank').is(':checked')) {
-        bottom_section = "";
+      if ($('#section2_blank').is(':checked')) {
+        section2 = "";
       }
 
-      top_section_height    = $("#top_height").val().trim()
-      top_section_height = top_section_height=="" ? null : Number(top_section_height)
+      var section3 = "RSS";
+      if ($('#section3_blank').is(':checked')) {
+        section3 = "";
+      }
 
-      middle_section_height = $("#middle_height").val().trim()
-      middle_section_height = middle_section_height=="" ? null : Number(middle_section_height)
+      section1_height = $("#section1_height").val().trim()
+      section1_height = section1_height=="" ? null : Number(section1_height)
 
-      bottom_section_height = $("#bottom_height").val().trim()
-      bottom_section_height = bottom_section_height=="" ? null : Number(bottom_section_height)
+      section2_height = $("#section2_height").val().trim()
+      section2_height = section2_height=="" ? null : Number(section2_height)
+
+      section3_height = $("#section3_height").val().trim()
+      section3_height = section3_height=="" ? null : Number(section3_height)
 
       var display_orientation = "normal";
       if ($('#DisplayRotated').is(':checked')) {
@@ -659,12 +659,12 @@
         calibration_hours, 
         model, language, 
         units, hours, 
-        top_section,
-        top_section_height,
-        middle_section,
-        middle_section_height,
-        bottom_section,
-        bottom_section_height,
+        section1,
+        section1_height,
+        section2,
+        section2_height,
+        section3,
+        section3_height,
         display_orientation, 
         image_path, 
         image_path_body)
@@ -686,12 +686,12 @@
       language,
       units,
       hours,
-      top_section,
-      top_section_height,
-      middle_section,
-      middle_section_height,
-      bottom_section,
-      bottom_section_height,
+      section1,
+      section1_height,
+      section2,
+      section2_height,
+      section3,
+      section3_height,
       display_orientation,
       image_path,
       image_path_body
@@ -707,13 +707,13 @@
         "panels": []
       };
 
-      switch (top_section) {
+      switch (section1) {
         case "Weather":
           result.panels.push(
             {
-              "location": "top",
+              "location": 1,
               "type": "Weather",
-              "height"    : top_section_height,
+              "height"    : section1_height,
               "config": {
                 "api_key": api_key,     //Your openweathermap API-KEY -> "api-key"
                 "location": location      //"City name, Country code"
@@ -725,14 +725,14 @@
           break;
       }
 
-      switch (middle_section) {
+      switch (section2) {
         case "Agenda":
         case "Calendar":
           result.panels.push(
             {
-              "location": "middle",
-              "type": middle_section,
-              "height"    : middle_section_height,
+              "location": 2,
+              "type": section2,
+              "height"    : section2_height,
               "config": {
                 "week_starts_on": week_starts_on,    //"Sunday", "Monday"...
                 "ical_urls": ical_urls.split().map(function (x) { return TrimSingleQuotes(x); })
@@ -743,9 +743,9 @@
         case "inkycal_image":
           result.panels.push(
             {
-              "location": "middle",
-              "type": middle_section,
-              "height"    : middle_section_height,
+              "location": 2,
+              "type": section2,
+              "height"    : section2_height,
               "config": {
                 "image_path": TrimSingleQuotes(image_path),
                 "image_path_body": image_path_body
@@ -757,13 +757,13 @@
           break;
       }
 
-      switch (bottom_section) {
+      switch (section3) {
         case "RSS":
           result.panels.push(
             {
-              "location": "bottom",
-              "type": bottom_section,
-              "height"    : bottom_section_height,
+              "location": 3,
+              "type": section3,
+              "height"    : section3_height,
               "config": {
                 "rss_urls": rss_urls.split().map(function (x) { return TrimSingleQuotes(x); })
               }
